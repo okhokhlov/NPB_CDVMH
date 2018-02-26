@@ -37,7 +37,7 @@
 void compute_rhs()
 {
   int i, j, k, m;
-  double rho_inv, uijk, up1, um1, vijk, vp1, vm1, wijk, wp1, wm1;
+  double rho_inv, uijk, up1, um1, vijk, vp1, vm1, wijk, wp1, wm1, rhs_[5];
 
   /*if (timeron) timer_start(t_rhs);
   //---------------------------------------------------------------------
@@ -447,12 +447,18 @@ void compute_rhs()
         uijk = us[k][j][i];
         up1  = us[k][j][i+1];
         um1  = us[k][j][i-1];
-        rhs[k][j][i][0] = rhs[k][j][i][0] + dx1tx1 * 
+		rhs_[0] = forcing[k][j][i][0];
+		rhs_[1] = forcing[k][j][i][1];
+		rhs_[2] = forcing[k][j][i][2];
+		rhs_[3] = forcing[k][j][i][3];
+		rhs_[4] = forcing[k][j][i][4];
+		
+        rhs_[0] = rhs_[0] + dx1tx1 * 
           (u[k][j][i+1][0] - 2.0*u[k][j][i][0] + 
            u[k][j][i-1][0]) -
           tx2 * (u[k][j][i+1][1] - u[k][j][i-1][1]);
 
-        rhs[k][j][i][1] = rhs[k][j][i][1] + dx2tx1 * 
+        rhs_[1] = rhs_[1] + dx2tx1 * 
           (u[k][j][i+1][1] - 2.0*u[k][j][i][1] + 
            u[k][j][i-1][1]) +
           xxcon2*con43 * (up1 - 2.0*uijk + um1) -
@@ -462,7 +468,7 @@ void compute_rhs()
                u[k][j][i-1][4]+ square[k][j][i-1])*
               c2);
 
-        rhs[k][j][i][2] = rhs[k][j][i][2] + dx3tx1 * 
+        rhs_[2] = rhs_[2] + dx3tx1 * 
           (u[k][j][i+1][2] - 2.0*u[k][j][i][2] +
            u[k][j][i-1][2]) +
           xxcon2 * (vs[k][j][i+1] - 2.0*vs[k][j][i] +
@@ -470,7 +476,7 @@ void compute_rhs()
           tx2 * (u[k][j][i+1][2]*up1 - 
               u[k][j][i-1][2]*um1);
 
-        rhs[k][j][i][3] = rhs[k][j][i][3] + dx4tx1 * 
+        rhs_[3] = rhs_[3] + dx4tx1 * 
           (u[k][j][i+1][3] - 2.0*u[k][j][i][3] +
            u[k][j][i-1][3]) +
           xxcon2 * (ws[k][j][i+1] - 2.0*ws[k][j][i] +
@@ -478,7 +484,7 @@ void compute_rhs()
           tx2 * (u[k][j][i+1][3]*up1 - 
               u[k][j][i-1][3]*um1);
 
-        rhs[k][j][i][4] = rhs[k][j][i][4] + dx5tx1 * 
+        rhs_[4] = rhs_[4] + dx5tx1 * 
           (u[k][j][i+1][4] - 2.0*u[k][j][i][4] +
            u[k][j][i-1][4]) +
           xxcon3 * (qs[k][j][i+1] - 2.0*qs[k][j][i] +
@@ -495,21 +501,21 @@ void compute_rhs()
     
         if(i == 1){
 			for (m = 0; m < 5; m++) {
-				rhs[k][j][i][m] = rhs[k][j][i][m]- dssp * 
+				rhs_[m] = rhs_[m]- dssp * 
 				( 5.0*u[k][j][i][m] - 4.0*u[k][j][i+1][m] +
 				u[k][j][i+2][m]);
 			}
 		}
 		if(i == 2){
 			for (m = 0; m < 5; m++) {
-				rhs[k][j][i][m] = rhs[k][j][i][m] - dssp * 
+				rhs_[m] = rhs_[m] - dssp * 
 				(-4.0*u[k][j][i-1][m] + 6.0*u[k][j][i][m] -
 				4.0*u[k][j][i+1][m] + u[k][j][i+2][m]);
 			}
 		}
 		if((i >= 3)&&(i <= grid_points[0]-4)){
 			for (m = 0; m < 5; m++) {
-				rhs[k][j][i][m] = rhs[k][j][i][m] - dssp * 
+				rhs_[m] = rhs_[m] - dssp * 
 				(  u[k][j][i-2][m] - 4.0*u[k][j][i-1][m] + 
 				6.0*u[k][j][i][m] - 4.0*u[k][j][i+1][m] + 
 				u[k][j][i+2][m] );
@@ -517,14 +523,14 @@ void compute_rhs()
 		}
 		if(i == grid_points[0]-3){
 			for (m = 0; m < 5; m++) {
-				rhs[k][j][i][m] = rhs[k][j][i][m] - dssp *
+				rhs_[m] = rhs_[m] - dssp *
 				( u[k][j][i-2][m] - 4.0*u[k][j][i-1][m] + 
 					6.0*u[k][j][i][m] - 4.0*u[k][j][i+1][m] );
 			}
 		}
 		if(i == grid_points[0]-2){
 			for (m = 0; m < 5; m++) {
-				rhs[k][j][i][m] = rhs[k][j][i][m] - dssp *
+				rhs_[m] = rhs_[m] - dssp *
 				( u[k][j][i-2][m] - 4.*u[k][j][i-1][m] +
 				5.*u[k][j][i][m] );
 			}
@@ -533,18 +539,18 @@ void compute_rhs()
 		vijk = vs[k][j][i];
         vp1  = vs[k][j+1][i];
         vm1  = vs[k][j-1][i];
-        rhs[k][j][i][0] = rhs[k][j][i][0] + dy1ty1 * 
+        rhs_[0] = rhs_[0] + dy1ty1 * 
           (u[k][j+1][i][0] - 2.0*u[k][j][i][0] + 
            u[k][j-1][i][0]) -
           ty2 * (u[k][j+1][i][2] - u[k][j-1][i][2]);
-        rhs[k][j][i][1] = rhs[k][j][i][1] + dy2ty1 * 
+        rhs_[1] = rhs_[1] + dy2ty1 * 
           (u[k][j+1][i][1] - 2.0*u[k][j][i][1] + 
            u[k][j-1][i][1]) +
           yycon2 * (us[k][j+1][i] - 2.0*us[k][j][i] + 
               us[k][j-1][i]) -
           ty2 * (u[k][j+1][i][1]*vp1 - 
               u[k][j-1][i][1]*vm1);
-        rhs[k][j][i][2] = rhs[k][j][i][2] + dy3ty1 * 
+        rhs_[2] = rhs_[2] + dy3ty1 * 
           (u[k][j+1][i][2] - 2.0*u[k][j][i][2] + 
            u[k][j-1][i][2]) +
           yycon2*con43 * (vp1 - 2.0*vijk + vm1) -
@@ -553,14 +559,14 @@ void compute_rhs()
               (u[k][j+1][i][4] - square[k][j+1][i] - 
                u[k][j-1][i][4] + square[k][j-1][i])
               *c2);
-        rhs[k][j][i][3] = rhs[k][j][i][3] + dy4ty1 * 
+        rhs_[3] = rhs_[3] + dy4ty1 * 
           (u[k][j+1][i][3] - 2.0*u[k][j][i][3] + 
            u[k][j-1][i][3]) +
           yycon2 * (ws[k][j+1][i] - 2.0*ws[k][j][i] + 
               ws[k][j-1][i]) -
           ty2 * (u[k][j+1][i][3]*vp1 - 
               u[k][j-1][i][3]*vm1);
-        rhs[k][j][i][4] = rhs[k][j][i][4] + dy5ty1 * 
+        rhs_[4] =rhs_[4] + dy5ty1 * 
           (u[k][j+1][i][4] - 2.0*u[k][j][i][4] + 
            u[k][j-1][i][4]) +
           yycon3 * (qs[k][j+1][i] - 2.0*qs[k][j][i] + 
@@ -578,21 +584,21 @@ void compute_rhs()
 		  
 		  if(j == 1){
 			  for (m = 0; m < 5; m++) {
-				rhs[k][j][i][m] = rhs[k][j][i][m]- dssp * 
+				rhs_[m] = rhs_[m]- dssp * 
 				( 5.0*u[k][j][i][m] - 4.0*u[k][j+1][i][m] +
 				u[k][j+2][i][m]);
 			  } 
 		  }
 		  if(j == 2){
 			for (m = 0; m < 5; m++) {
-				rhs[k][j][i][m] = rhs[k][j][i][m] - dssp * 
+				rhs_[m] = rhs_[m] - dssp * 
 				(-4.0*u[k][j-1][i][m] + 6.0*u[k][j][i][m] -
 				4.0*u[k][j+1][i][m] + u[k][j+2][i][m]);
 			}  
 		  }
 		  if((j >= 3)&&(j <= grid_points[1]-4)){
 			  for (m = 0; m < 5; m++) {
-				rhs[k][j][i][m] = rhs[k][j][i][m] - dssp * 
+				rhs_[m] = rhs_[m] - dssp * 
 				(  u[k][j-2][i][m] - 4.0*u[k][j-1][i][m] + 
 				6.0*u[k][j][i][m] - 4.0*u[k][j+1][i][m] + 
 				u[k][j+2][i][m] );
@@ -600,14 +606,14 @@ void compute_rhs()
 		  }
 		  if(j == grid_points[1]-3){
 			  for (m = 0; m < 5; m++) {
-				rhs[k][j][i][m] = rhs[k][j][i][m] - dssp *
+				rhs_[m] = rhs_[m] - dssp *
 				( u[k][j-2][i][m] - 4.0*u[k][j-1][i][m] + 
 				6.0*u[k][j][i][m] - 4.0*u[k][j+1][i][m] );
 			  }
 		  }
 		  if(j == grid_points[1]-2){
 			for (m = 0; m < 5; m++) {
-				rhs[k][j][i][m] = rhs[k][j][i][m] - dssp *
+				rhs_[m] = rhs_[m] - dssp *
 				( u[k][j-2][i][m] - 4.*u[k][j-1][i][m] +
 				5.*u[k][j][i][m] );
 			}  
@@ -619,25 +625,25 @@ void compute_rhs()
         wp1  = ws[k+1][j][i];
         wm1  = ws[k-1][j][i];
 
-        rhs[k][j][i][0] = rhs[k][j][i][0] + dz1tz1 * 
+        rhs_[0] = rhs_[0] + dz1tz1 * 
           (u[k+1][j][i][0] - 2.0*u[k][j][i][0] + 
            u[k-1][j][i][0]) -
           tz2 * (u[k+1][j][i][3] - u[k-1][j][i][3]);
-        rhs[k][j][i][1] = rhs[k][j][i][1] + dz2tz1 * 
+        rhs_[1] = rhs_[1] + dz2tz1 * 
           (u[k+1][j][i][1] - 2.0*u[k][j][i][1] + 
            u[k-1][j][i][1]) +
           zzcon2 * (us[k+1][j][i] - 2.0*us[k][j][i] + 
               us[k-1][j][i]) -
           tz2 * (u[k+1][j][i][1]*wp1 - 
               u[k-1][j][i][1]*wm1);
-        rhs[k][j][i][2] = rhs[k][j][i][2] + dz3tz1 * 
+        rhs_[2] = rhs_[2] + dz3tz1 * 
           (u[k+1][j][i][2] - 2.0*u[k][j][i][2] + 
            u[k-1][j][i][2]) +
           zzcon2 * (vs[k+1][j][i] - 2.0*vs[k][j][i] + 
               vs[k-1][j][i]) -
           tz2 * (u[k+1][j][i][2]*wp1 - 
               u[k-1][j][i][2]*wm1);
-        rhs[k][j][i][3] = rhs[k][j][i][3] + dz4tz1 * 
+        rhs_[3] = rhs_[3] + dz4tz1 * 
           (u[k+1][j][i][3] - 2.0*u[k][j][i][3] + 
            u[k-1][j][i][3]) +
           zzcon2*con43 * (wp1 - 2.0*wijk + wm1) -
@@ -646,7 +652,7 @@ void compute_rhs()
               (u[k+1][j][i][4] - square[k+1][j][i] - 
                u[k-1][j][i][4] + square[k-1][j][i])
               *c2);
-        rhs[k][j][i][4] = rhs[k][j][i][4] + dz5tz1 * 
+        rhs_[4] = rhs_[4] + dz5tz1 * 
           (u[k+1][j][i][4] - 2.0*u[k][j][i][4] + 
            u[k-1][j][i][4]) +
           zzcon3 * (qs[k+1][j][i] - 2.0*qs[k][j][i] + 
@@ -664,21 +670,21 @@ void compute_rhs()
 			   
 		if(k == 1){
 			for (m = 0; m < 5; m++) {
-				rhs[k][j][i][m] = rhs[k][j][i][m]- dssp * 
+				rhs_[m] = rhs_[m]- dssp * 
 				( 5.0*u[k][j][i][m] - 4.0*u[k+1][j][i][m] +
 				u[k+2][j][i][m]);
 			}
 		}
 		if(k == 2){
 			for (m = 0; m < 5; m++) {
-				rhs[k][j][i][m] = rhs[k][j][i][m] - dssp * 
+				rhs_[m] = rhs_[m] - dssp * 
 				(-4.0*u[k-1][j][i][m] + 6.0*u[k][j][i][m] -
 				4.0*u[k+1][j][i][m] + u[k+2][j][i][m]);
 			}
 		}
 		if((k >= 3)&&(k <= grid_points[2]-4)){
 			for (m = 0; m < 5; m++) {
-				rhs[k][j][i][m] = rhs[k][j][i][m] - dssp * 
+				rhs_[m] = rhs_[m] - dssp * 
 				(  u[k-2][j][i][m] - 4.0*u[k-1][j][i][m] + 
 				6.0*u[k][j][i][m] - 4.0*u[k+1][j][i][m] + 
 				u[k+2][j][i][m] );
@@ -686,24 +692,28 @@ void compute_rhs()
 		}
 		if(k == grid_points[2]-3){
 			for (m = 0; m < 5; m++) {
-				rhs[k][j][i][m] = rhs[k][j][i][m] - dssp *
+				rhs_[m] = rhs_[m] - dssp *
 				( u[k-2][j][i][m] - 4.0*u[k-1][j][i][m] + 
 				6.0*u[k][j][i][m] - 4.0*u[k+1][j][i][m] );
 			}
 		}
 		if(k == grid_points[2]-2){
 			for (m = 0; m < 5; m++) {
-				rhs[k][j][i][m] = rhs[k][j][i][m] - dssp *
+				rhs_[m] = rhs_[m] - dssp *
 				( u[k-2][j][i][m] - 4.*u[k-1][j][i][m] +
 				5.*u[k][j][i][m] );
 			}
 		}
 		///////////////
 	
-		for (m = 0; m < 5; m++) {
-          rhs[k][j][i][m] = rhs[k][j][i][m] * dt;
-        }
-	
+		//for (m = 0; m < 5; m++) {
+          //rhs[k][j][i][m] = rhs_[m] * dt;
+        //}
+		rhs[k][j][i][0] = rhs_[0] * dt;
+		rhs[k][j][i][1] = rhs_[1] * dt;
+		rhs[k][j][i][2] = rhs_[2] * dt;
+		rhs[k][j][i][3] = rhs_[3] * dt;
+		rhs[k][j][i][4] = rhs_[4] * dt;
 	
 	   }
 	}

@@ -42,6 +42,13 @@ void error_norm(double rms[5])
 {
   int i, j, k, m, d;
   double xi, eta, zeta, u_exact[5], add;
+  double r0, r1, r2, r3, r4;
+  
+  r0 = 0;
+  r1 = 0;
+  r2 = 0;
+  r3 = 0;
+  r4 = 0;
 
   for (m = 0; m < 5; m++) {
     rms[m] = 0.0;
@@ -55,14 +62,31 @@ void error_norm(double rms[5])
         xi = (double)(i) * dnxm1;
         exact_solution(xi, eta, zeta, u_exact);
 
-        for (m = 0; m < 5; m++) {
-          add = u[k][j][i][m]-u_exact[m];
-          rms[m] = rms[m] + add*add;
-        }
+        //for (m = 0; m < 5; m++) {
+          //add = u[k][j][i][m]-u_exact[m];
+          //rms[m] = rms[m] + add*add;
+        //}
+		add = u[k][j][i][0] - u_exact[m];
+		r0 = r0 + add * add;
+		add = u[k][j][i][1] - u_exact[m];
+		r1 = r1 + add * add;
+		add = u[k][j][i][2] - u_exact[m];
+		r2 = r2 + add * add;
+		add = u[k][j][i][3] - u_exact[m];
+		r3 = r3 + add * add;
+		add = u[k][j][i][4] - u_exact[m];
+		r4 = r4 + add * add;
+		
       }
     }
   }
 
+  rms[0] = r0;
+  rms[1] = r1;
+  rms[2] = r2;
+  rms[3] = r3;
+  rms[4] = r4;
+  
   for (m = 0; m < 5; m++) {
     for (d = 0; d < 3; d++) {
       rms[m] = rms[m] / (double)(grid_points[d]-2);
@@ -76,6 +100,13 @@ void rhs_norm(double rms[5])
 {
   int i, j, k, d, m;
   double add;
+  double r0, r1, r2, r3, r4;
+  
+  r0 = 0;
+  r1 = 0;
+  r2 = 0;
+  r3 = 0;
+  r4 = 0;
 
   for (m = 0; m < 5; m++) {
     rms[m] = 0.0;
@@ -84,14 +115,31 @@ void rhs_norm(double rms[5])
   for (k = 1; k <= grid_points[2]-2; k++) {
     for (j = 1; j <= grid_points[1]-2; j++) {
       for (i = 1; i <= grid_points[0]-2; i++) {
-        for (m = 0; m < 5; m++) {
-          add = rhs[k][j][i][m];
-          rms[m] = rms[m] + add*add;
-        } 
+        //for (m = 0; m < 5; m++) {
+          //add = rhs[k][j][i][m];
+          //rms[m] = rms[m] + add*add;
+        //}
+		add = rhs[k][j][i][0];
+		r0 = r0 + add * add;
+		add = rhs[k][j][i][1];
+		r1 = r1 + add * add;
+		add = rhs[k][j][i][2];
+		r2 = r2 + add * add;
+		add = rhs[k][j][i][3];
+		r3 = r3 + add * add;
+		add = rhs[k][j][i][4];
+		r4 = r4 + add * add;
+		
       } 
     } 
   } 
 
+  rms[0] = r0;
+  rms[1] = r1;
+  rms[2] = r2;
+  rms[3] = r3;
+  rms[4] = r4;
+  
   for (m = 0; m < 5; m++) {
     for (d = 0; d < 3; d++) {
       rms[m] = rms[m] / (double)(grid_points[d]-2);
