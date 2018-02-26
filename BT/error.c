@@ -66,15 +66,15 @@ void error_norm(double rms[5])
           //add = u[k][j][i][m]-u_exact[m];
           //rms[m] = rms[m] + add*add;
         //}
-		add = u[k][j][i][0] - u_exact[m];
+		add = u[k][j][i][0] - u_exact[0];
 		r0 = r0 + add * add;
-		add = u[k][j][i][1] - u_exact[m];
+		add = u[k][j][i][1] - u_exact[1];
 		r1 = r1 + add * add;
-		add = u[k][j][i][2] - u_exact[m];
+		add = u[k][j][i][2] - u_exact[2];
 		r2 = r2 + add * add;
-		add = u[k][j][i][3] - u_exact[m];
+		add = u[k][j][i][3] - u_exact[3];
 		r3 = r3 + add * add;
-		add = u[k][j][i][4] - u_exact[m];
+		add = u[k][j][i][4] - u_exact[4];
 		r4 = r4 + add * add;
 		
       }
@@ -132,7 +132,7 @@ void rhs_norm(double rms[5])
 		
       } 
     } 
-  } 
+  }
 
   rms[0] = r0;
   rms[1] = r1;
