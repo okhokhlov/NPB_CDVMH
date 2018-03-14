@@ -825,10 +825,15 @@ void x_solve()
 						lhs[isize][1][n][m] = 0.0;
 						lhs[isize][2][n][m] = 0.0;
 					}
-				}
-				for (m = 0; m < 5; m++) {
-					lhs[isize][1][m][m] = 1.0;
 				}*/
+				//for (m = 0; m < 5; m++) {
+				//	lhs[isize][1][m][m] = 1.0;
+				//}
+				//
+				
+				//
+				//
+				//
 
 			}
 
