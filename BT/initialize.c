@@ -53,7 +53,9 @@ void initialize()
   // to compute the whole thing with a simple loop. Make sure those 
   // values are nonzero by initializing the whole thing here. 
   //---------------------------------------------------------------------
-  #pragma dvm parallel ([k][j][i] on u[k][j][i][]) private(m)
+  
+  
+  //#pragma dvm parallel ([k][j][i] on u[k][j][i][]) private(m)
   for (k = 0; k <= grid_points[2]-1; k++) {
     for (j = 0; j <= grid_points[1]-1; j++) {
       for (i = 0; i <= grid_points[0]-1; i++) {
@@ -204,7 +206,7 @@ void initialize()
   
   
   
-  #pragma dvm parallel ([k][j][i] on u[k][j][i][]) private(m, ix, iy, iz, xi, eta, zeta, Pface, Pxi, Peta, Pzeta, temp)
+  //#pragma dvm parallel ([k][j][i] on u[k][j][i][]) private(m, ix, iy, iz, xi, eta, zeta, Pface, Pxi, Peta, Pzeta, temp)
   for (k = 0; k <= grid_points[2]-1; k++) {
     for (j = 0; j <= grid_points[1]-1; j++) {	  
       for (i = 0; i <= grid_points[0]-1; i++) {

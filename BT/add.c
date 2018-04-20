@@ -45,8 +45,8 @@ void add()
   
   
   
-  //#pragma dvm redistribute (u[block][block][block][])
-  //#pragma dvm parallel ([k][j][i] on u[k][j][i][])
+  #pragma dvm redistribute (u[block][block][block][])
+  #pragma dvm parallel ([k][j][i] on u[k][j][i][])
   for (k = 1; k <= grid_points[2]-2; k++) {
     for (j = 1; j <= grid_points[1]-2; j++) {
       for (i = 1; i <= grid_points[0]-2; i++) {
@@ -57,7 +57,7 @@ void add()
     }
   }
   
-  //#pragma dvm redistribute(u[][][][])
+  #pragma dvm redistribute(u[][][][])
   //#pragma dvm redistribute(rhs[][][][])
   
   if (timeron) timer_stop(t_add);

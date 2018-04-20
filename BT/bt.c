@@ -67,7 +67,7 @@ double tx1, tx2, tx3, ty1, ty2, ty3, tz1, tz2, tz3,
 // for even number sizes only.
 /* common /fields/ */
 
-#pragma dvm array distribute [block][][][]
+#pragma dvm array distribute [][][][]
 double u      [KMAX][JMAXP+1][IMAXP+1][5];
 
 
@@ -88,7 +88,7 @@ double forcing[KMAX][JMAXP+1][IMAXP+1][5];
 
 
 
-//#pragma dvm array align ([i][j][k][l] with u[i][j][k][l])
+#pragma dvm array align ([i][j][k][l] with u[i][j][k][l])
 double rhs    [KMAX][JMAXP+1][IMAXP+1][5];
 
 /* common /work_1d/ */

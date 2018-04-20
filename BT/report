@@ -6,8 +6,8 @@
 3)не очень понятен смыл тройного цикла в файлах  _solve.c
 
 
-+add.c
-+adi.c
+++add.c
+++adi.c
 -bt.c
 +error.c
 +exact_rhs.c//уточнить, нормально ли так.
@@ -17,6 +17,9 @@
 +set_constants.c
 -solve_subs.c
 +verify.c
--x_solve.c
--y_solve.c
--z_solve.c
++x_solve.c
++y_solve.c
++z_solve.c
+
+
+спросить про одинаковые функции в solve файлах.

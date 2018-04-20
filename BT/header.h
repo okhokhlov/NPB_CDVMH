@@ -109,7 +109,7 @@ extern double forcing[KMAX][JMAXP+1][IMAXP+1][5];
 
 
 
-//#pragma dvm array
+#pragma dvm array
 extern double rhs    [KMAX][JMAXP+1][IMAXP+1][5];
 
 /* common /work_1d/ */
