@@ -93,6 +93,7 @@ double forcing[KMAX][JMAXP+1][IMAXP+1][5];
 double rhs    [KMAX][JMAXP+1][IMAXP+1][5];
 */
 
+
 //#pragma dvm array distribute [block][block][block][][][]
 #pragma dvm array distribute [][][][][][]
 double lhs_buf[PROBLEM_SIZE+1][PROBLEM_SIZE+1][PROBLEM_SIZE+1][3][5][5];
@@ -115,7 +116,7 @@ double square [KMAX][JMAXP+1][IMAXP+1];
 double rhs    [KMAX][JMAXP+1][IMAXP+1][5];
 #pragma dvm array align ([i][j][k][] with lhs_buf[i][j][k][][][])
 double forcing[KMAX][JMAXP+1][IMAXP+1][5];
-double test[100];
+
 
 
 
@@ -139,7 +140,7 @@ double tmp1, tmp2, tmp3;
 
 int main(int argc, char *argv[])
 {
-  #pragma dvm redistribute (lhs_buf[block][block][block][][][])
+
 	
   int i, niter, step;
   double navg, mflops, n3;
