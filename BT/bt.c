@@ -67,10 +67,14 @@ double tx1, tx2, tx3, ty1, ty2, ty3, tz1, tz2, tz3,
 // for even number sizes only.
 /* common /fields/ */
 
-#pragma dvm array distribute [block][][][]
+
+//#pragma dvm array align ([i][j][k] with u[i][j][k][])
+//#pragma dvm arrary distribute [][][]
+//double us     [KMAX][JMAXP+1][IMAXP+1];
+
+/*
+#pragma dvm array distribute [][][][] //shadow(u( 0:0, 2:2, 2:2, 2:2))
 double u      [KMAX][JMAXP+1][IMAXP+1][5];
-
-
 #pragma dvm array align ([i][j][k] with u[i][j][k][])
 double us     [KMAX][JMAXP+1][IMAXP+1];
 #pragma dvm array align ([i][j][k] with u[i][j][k][])
@@ -85,11 +89,39 @@ double rho_i  [KMAX][JMAXP+1][IMAXP+1];
 double square [KMAX][JMAXP+1][IMAXP+1];
 #pragma dvm array align ([i][j][k][] with u[i][j][k][])// как такое выравнивать
 double forcing[KMAX][JMAXP+1][IMAXP+1][5];
-
-
-
-//#pragma dvm array align ([i][j][k][l] with u[i][j][k][l])
+#pragma dvm array align ([i][j][k][l] with u[i][j][k][l])
 double rhs    [KMAX][JMAXP+1][IMAXP+1][5];
+*/
+
+
+//#pragma dvm array distribute [block][block][block][][][]
+#pragma dvm array distribute [][][][][][]
+double lhs_buf[PROBLEM_SIZE+1][PROBLEM_SIZE+1][PROBLEM_SIZE+1][3][5][5];
+
+#pragma dvm array align ([i][j][k] with lhs_buf[i][j][k][][][])
+double us     [KMAX][JMAXP+1][IMAXP+1];
+#pragma dvm array align ([i][j][k][] with lhs_buf[i][j][k][][][]), shadow [2:2][2:2][2:2][0:0]
+double u      [KMAX][JMAXP+1][IMAXP+1][5];
+#pragma dvm array align ([i][j][k] with lhs_buf[i][j][k][][][])
+double vs     [KMAX][JMAXP+1][IMAXP+1];
+#pragma dvm array align ([i][j][k] with lhs_buf[i][j][k][][][])
+double ws     [KMAX][JMAXP+1][IMAXP+1];
+#pragma dvm array align ([i][j][k] with lhs_buf[i][j][k][][][]), shadow [2:2][2:2][2:2]
+double qs     [KMAX][JMAXP+1][IMAXP+1];
+#pragma dvm array align ([i][j][k] with lhs_buf[i][j][k][][][])
+double rho_i  [KMAX][JMAXP+1][IMAXP+1];
+#pragma dvm array align ([i][j][k] with lhs_buf[i][j][k][][][]), shadow [2:2][2:2][2:2]
+double square [KMAX][JMAXP+1][IMAXP+1];
+#pragma dvm array align ([i][j][k][] with lhs_buf[i][j][k][][][])//, shadow [0:1][0:1][0:1][0:0]
+double rhs    [KMAX][JMAXP+1][IMAXP+1][5];
+#pragma dvm array align ([i][j][k][] with lhs_buf[i][j][k][][][])
+double forcing[KMAX][JMAXP+1][IMAXP+1][5];
+
+
+
+
+
+
 
 /* common /work_1d/ */
 double cuf[PROBLEM_SIZE+1];// как такие выравнивать? по [i] with u[i][0][0][0]
@@ -103,11 +135,13 @@ double njac[PROBLEM_SIZE+1][5][5];
 double lhs [PROBLEM_SIZE+1][3][5][5];
 double tmp1, tmp2, tmp3;
 
-double lhs_buf[PROBLEM_SIZE+1][PROBLEM_SIZE+1][PROBLEM_SIZE+1][5][5];
+
 
 
 int main(int argc, char *argv[])
 {
+
+	
   int i, niter, step;
   double navg, mflops, n3;
 

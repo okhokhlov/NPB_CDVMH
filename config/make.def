@@ -78,18 +78,22 @@ FLINKFLAGS = -O3 -mcmodel=medium
 #---------------------------------------------------------------------------
 # This is the C compiler used for C programs
 #---------------------------------------------------------------------------
-CC = /home/DVM/dvm_current/dvm_sys/demo/dvm c
+CC = /home/DVM/dvm_r5680/dvm_sys/demo/dvm c -noH
+
+#CC = gcc
 
 #---------------------------------------------------------------------------
 # This links C programs; usually the same as ${CC}
 #---------------------------------------------------------------------------
-CLINK	= /home/DVM/dvm_current/dvm_sys/demo/dvm link
+CLINK	= /home/DVM/dvm_r5680/dvm_sys/demo/dvm link
+
+#CLINK = $(CC)
 
 #---------------------------------------------------------------------------
 # These macros are passed to the linker 
 #---------------------------------------------------------------------------
 C_LIB  = 
-#-lm
+#C_LIB  = -lm
 
 #---------------------------------------------------------------------------
 # These macros are passed to the compiler 
