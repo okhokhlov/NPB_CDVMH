@@ -1,0 +1,40 @@
+#!/bin/sh
+
+dvmdir='/home/DVM/dvm_current/dvm_sys'
+export dvmbuild='Version 5.0, revision 5258, build 2, platform Tester'
+
+#--------------- One can customize compiler options:
+# export PCC='mpicc -g -O3  -fopenmp' # C compiler
+# export PCXX='mpicxx -g -O3  -fopenmp' # C++ compiler
+# export PFORT='mpif77 -g -O3  -fopenmp' # Fortran compiler
+# export NVCC='/opt/cuda/latest/bin/nvcc -arch=sm_20 -DCUDA_FERMI_ARCH -O3 -DPGI_COMPILE_BITCODE -DHAVE_EXPLICIT_CAST' # NVIDIA CUDA C++ compiler
+# export NVFORT='/opt/pgi/linux86-64/2016/bin/pgfortran -Mfixed -Mcuda=8.0 -O2 -ta=nvidia:keepgpu,cc35,nollvm' # Fortran-CUDA compiler
+
+#--------------- One can add libraries (additional linker flags):
+# export USER_LIBS=''
+
+#--------------- One can set launch options:
+# export dvmwait=0 # Wait for task completion
+export DVMH_PPN='12' # Number of processes per node
+# export DVMH_STACKSIZE='' # Stack size to set for the task
+#export DVMH_NUM_THREADS='0' # Number of CPU threads per process
+export DVMH_NUM_CUDAS='1' # Number of GPUs per process
+# export DVMH_CPU_PERF='' # Performance of all cores of CPU per process
+# export DVMH_CUDAS_PERF='' # Performance of each GPU per device
+# export DVMH_NO_DIRECT_COPY=0 # Use standard cudaMemcpy functions instead of direct copying with GPU
+# export DVMH_SPECIALIZE_RTC=1 # Use specialization algorithm to reduce CUDA kernel's resources / or compile kernels during execution without changes
+
+#--------------- Debugging options:
+export DVMH_LOGLEVEL=1 # Levels of debugging: 1 - errors only, 2 - warning, 3 - info, 4 - debug, 5 - trace
+# export DVMH_LOGFILE='dvmh_%d.log' # Log file name for each process
+# export DVMH_COMPARE_DEBUG=0 # An alternative way to turn comparative debugging mode on
+# export dvmsave=0 # Save convertation results
+# export dvmshow=0 # Show commands executed by the DVM driver
+
+#--------------- CUDA profiling options:
+# export CUDA_PROFILE=0 # Enable/disable CUDA profiling
+# export CUDA_PROFILE_CONFIG='cuda.conf' # File with GPU's metrics
+# export CUDA_PROFILE_LOG='cuda_profile.%d.%p' # Output file name for each process
+# export CUDA_PROFILE_CSV=1 # Set CSV output format
+
+exec "$dvmdir/bin/dvm_drv" "$@"

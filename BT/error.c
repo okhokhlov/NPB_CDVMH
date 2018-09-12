@@ -54,11 +54,13 @@ void error_norm(double rms[5])
     rms[m] = 0.0;
   }
 
-  #pragma dvm redistribute (u[block][block][block][])
-  #pragma dvm region
-  {
+  //#pragma dvm redistribute (u[block][block][block][])
+  //#pragma dvm redistribute (us[block][block][block])
+  //#pragma dvm redistribute (lhs_buf[block][block][block][][])
+  //#pragma dvm region
+  //{
 	  
-  #pragma dvm parallel ([k][j][i] on u[k][j][i][]) reduction(sum(r1), sum(r2), sum(r3), sum(r4), sum(r0)), private(u_exact, xi, eta, zeta, m, add)
+  //#pragma dvm parallel ([k][j][i] on u[k][j][i][]) reduction(sum(r1), sum(r2), sum(r3), sum(r4), sum(r0)), private(u_exact, xi, eta, zeta, m, add)
   for (k = 0; k <= grid_points[2]-1; k++) {    
     for (j = 0; j <= grid_points[1]-1; j++) {      
       for (i = 0; i <= grid_points[0]-1; i++) {
@@ -86,8 +88,10 @@ void error_norm(double rms[5])
     }
   }
 
-  }//end region
-  #pragma dvm redistribute(u[][][][])
+  //}//end region
+  //#pragma dvm redistribute (lhs_buf[][][][][])
+  //#pragma dvm redistribute(us[][][])
+  //#pragma dvm redistribute(u[][][][])
   
   rms[0] = r0;
   rms[1] = r1;
@@ -120,12 +124,13 @@ void rhs_norm(double rms[5])
     rms[m] = 0.0;
   } 
 
-  #pragma dvm redistribute (u[block][block][block][])
-  #pragma dvm region
-  {
+  //#pragma dvm redistribute (u[block][block][block][])
+  //#pragma dvm redistribute (us[block][block][block])
+  //#pragma dvm redistribute (lhs_buf[block][block][block][][])
+  //#pragma dvm region
+  //{
 	  
-  #pragma dvm parallel ([k][j][i] on u[k][j][i][]) reduction(sum(r1), sum(r2), sum(r3), sum(r4), sum(r0)), private(add)
-
+  //#pragma dvm parallel ([k][j][i] on u[k][j][i][]) reduction(sum(r1), sum(r2), sum(r3), sum(r4), sum(r0)), private(add)
   for (k = 1; k <= grid_points[2]-2; k++) {
     for (j = 1; j <= grid_points[1]-2; j++) {
       for (i = 1; i <= grid_points[0]-2; i++) {
@@ -148,8 +153,10 @@ void rhs_norm(double rms[5])
     } 
   }
 
-  }//end region
-  #pragma dvm redistribute(u[][][][])
+  //}//end region
+  //#pragma dvm redistribute (lhs_buf[][][][][])
+  //#pragma dvm redistribute(us[][][])
+  //#pragma dvm redistribute(u[][][][])
   
   
   rms[0] = r0;

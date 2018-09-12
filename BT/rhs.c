@@ -418,6 +418,15 @@ void compute_rhs()
   if (timeron) timer_stop(t_rhs);
   */
   
+  
+  
+  //#pragma dvm redistribute (u[block][block][block][]) shadow(u( 0:0, 2:2, 2:2, 2:2))
+  //#pragma dvm redistribute (us[block][block][block])
+  //#pragma dvm redistribute (lhs_buf[block][block][block][][])
+  //#pragma dvm region out(rho_i[KMAX][JMAXP+1][IMAXP+1], us[KMAX][JMAXP+1][IMAXP+1], vs[KMAX][JMAXP+1][IMAXP+1], ws[KMAX][JMAXP+1][IMAXP+1], qs[KMAX][JMAXP+1][IMAXP+1], square[KMAX][JMAXP+1][IMAXP+1])
+  //{
+  
+  //#pragma dvm parallel ([k][j][i] on u[k][j][i][]) private(rho_inv, m), shadow_renew (u[2:2][2:2][2:2][0:0])//, shadow_compute  
   for (k = 0; k <= grid_points[2]-1; k++) {
     for (j = 0; j <= grid_points[1]-1; j++) {
       for (i = 0; i <= grid_points[0]-1; i++) {
@@ -437,10 +446,16 @@ void compute_rhs()
       }
     }
   }
-
+  //#pragma dvm redistribute (lhs_buf[][][][][])
+  //#pragma dvm redistribute(us[][][])
+  //#pragma dvm redistribute(u[][][][])
+  
   //---------------------------------------------------------------------
   // compute xi-direction fluxes 
   //---------------------------------------------------------------------
+  //#pragma dvm redistribute (us[block][block][block])
+  //#pragma dvm redistribute (lhs_buf[block][block][block][][])
+  //#pragma dvm parallel ([k][j][i] on us[k][j][i]) private(uijk, up1, um1, m, vijk, vp1, vm1, wijk, wp1, wm1, rhs_), shadow_renew (u[2:2][2:2][2:2][0:0], us[1:1][1:1][1:1], rho_i[1:1][1:1][1:1], vs[1:1][1:1][1:1], square[1:1][1:1][1:1],  ws[1:1][1:1][1:1], qs[1:1][1:1][1:1])
   for (k = 1; k <= grid_points[2]-2; k++) {
     for (j = 1; j <= grid_points[1]-2; j++) {
       for (i = 1; i <= grid_points[0]-2; i++) {
@@ -718,8 +733,10 @@ void compute_rhs()
 	   }
 	}
   }
+  //}//end region
   //
- 
+  //#pragma dvm redistribute (lhs_buf[][][][][])
+ //#pragma dvm redistribute(us[][][])
  
   
 }

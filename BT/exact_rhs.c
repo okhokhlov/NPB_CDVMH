@@ -47,9 +47,11 @@ void exact_rhs()
   // initialize                                  
   //---------------------------------------------------------------------
   
-  #pragma dvm redistribute (u[block][block][block][])
+  //#pragma dvm redistribute (u[block][block][block][])
+  //#pragma dvm redistribute (us[block][block][block])
+  //#pragma dvm redistribute (lhs_buf[block][block][block][][])
   
-  #pragma dvm parallel ([k][j][i] on forcing[k][j][i][]) private(m)
+  //#pragma dvm parallel ([k][j][i] on forcing[k][j][i][]) private(m)
   for (k = 0; k <= grid_points[2]-1; k++) {
     for (j = 0; j <= grid_points[1]-1; j++) {
       for (i = 0; i <= grid_points[0]-1; i++) {
@@ -160,7 +162,7 @@ void exact_rhs()
   }
   */
 
-  #pragma dvm parallel ([k][j][i] on forcing[k][j][i][]) private(zeta, eta, xi, dtemp, buf_, cuf_, q_, dtpp, z, ue_, m)
+  //#pragma dvm parallel ([k][j][i] on forcing[k][j][i][]) private(zeta, eta, xi, dtemp, buf_, cuf_, q_, dtpp, z, ue_, m)
   for (k = 1; k <= grid_points[2]-2; k++) {
     for (j = 1; j <= grid_points[1]-2; j++) {
       for (i = 1; i <= grid_points[0]-2; i++) {
@@ -257,12 +259,14 @@ void exact_rhs()
     }
   }
   
+  //#pragma dvm redistribute (lhs_buf[][][][][])
+  //#pragma dvm redistribute(us[][][])
+  //#pragma dvm redistribute(u[][][][])
   
-  
-  
-  #pragma dvm redistribute(u[][][][])
-  
-  
+
+  //#pragma dvm redistribute (u[block][block][block][])
+  //#pragma dvm redistribute (us[block][block][block])
+  //#pragma dvm redistribute (lhs_buf[block][block][block][][])
   //---------------------------------------------------------------------
   // eta-direction flux differences             
   //---------------------------------------------------------------------
@@ -359,10 +363,10 @@ void exact_rhs()
   }
   */
   
-
-  for (k = 1; k <= grid_points[2]-2; k++) {
-    for (i = 1; i <= grid_points[0]-2; i++) {
-      for (j = 1; j <= grid_points[1]-2; j++) {
+//#pragma dvm parallel ([k][j][i] on forcing[k][j][i][]) private(zeta, eta, xi, dtemp, buf_, cuf_, q_, dtpp, z, ue_, m) 
+  for (k = 1; k <= grid_points[2]-2; k++) {   
+    for (j = 1; j <= grid_points[1]-2; j++) {
+      for (i = 1; i <= grid_points[0]-2; i++) {
 		zeta = (double)(k) * dnzm1;
 		xi = (double)(i) * dnxm1;
 		
@@ -453,8 +457,15 @@ void exact_rhs()
       }
     }
   }
+  //#pragma dvm redistribute (lhs_buf[][][][][])
+  //#pragma dvm redistribute(us[][][])
+  //#pragma dvm redistribute(u[][][][])
   
   
+  
+  //#pragma dvm redistribute (u[block][block][block][])
+  //#pragma dvm redistribute (us[block][block][block])
+  //#pragma dvm redistribute (lhs_buf[block][block][block][][])
   //---------------------------------------------------------------------
   // zeta-direction flux differences                      
   //---------------------------------------------------------------------
@@ -551,10 +562,11 @@ void exact_rhs()
     }
   }
   */
-  
-  for (j = 1; j <= grid_points[1]-2; j++) {   
-    for (i = 1; i <= grid_points[0]-2; i++) {
-      for (k = 1; k <= grid_points[2]-2; k++) {
+ 
+//#pragma dvm parallel ([k][j][i] on forcing[k][j][i][]) private(zeta, eta, xi, dtemp, buf_, cuf_, q_, dtpp, z, ue_, m) 
+  for (k = 1; k <= grid_points[2]-2; k++) {   
+    for (j = 1; j <= grid_points[1]-2; j++) {
+      for (i = 1; i <= grid_points[0]-2; i++) {
         xi = (double)(i) * dnxm1;
 		eta = (double)(j) * dnym1;
 		
@@ -643,12 +655,18 @@ void exact_rhs()
     }
   }
   
+  //#pragma dvm redistribute (lhs_buf[][][][][])
+  //#pragma dvm redistribute(us[][][])
+  //#pragma dvm redistribute(u[][][][])
   
   
-  
+  //#pragma dvm redistribute (u[block][block][block][])
+  //#pragma dvm redistribute (us[block][block][block])
+  //#pragma dvm redistribute (lhs_buf[block][block][block][][])
   //---------------------------------------------------------------------
   // now change the sign of the forcing function, 
   //---------------------------------------------------------------------
+  //#pragma dvm parallel ([k][j][i] on forcing[k][j][i][]) private(m)
   for (k = 1; k <= grid_points[2]-2; k++) {
     for (j = 1; j <= grid_points[1]-2; j++) {
       for (i = 1; i <= grid_points[0]-2; i++) {
@@ -658,7 +676,9 @@ void exact_rhs()
       }
     }
   }
-  
+  //#pragma dvm redistribute (lhs_buf[][][][][])
+  //#pragma dvm redistribute(us[][][])
+  //#pragma dvm redistribute(u[][][][])
   
 }
 

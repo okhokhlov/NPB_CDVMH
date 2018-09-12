@@ -54,6 +54,9 @@ void initialize()
   // values are nonzero by initializing the whole thing here. 
   //---------------------------------------------------------------------
   
+  //#pragma dvm redistribute (u[block][block][block][])
+  //#pragma dvm redistribute (us[block][block][block])
+  //#pragma dvm redistribute (lhs_buf[block][block][block][][])
   
   //#pragma dvm parallel ([k][j][i] on u[k][j][i][]) private(m)
   for (k = 0; k <= grid_points[2]-1; k++) {
@@ -65,7 +68,10 @@ void initialize()
       }
     }
   }
-
+  //#pragma dvm redistribute (lhs_buf[][][][][])
+  //#pragma dvm redistribute(us[][][])
+  //#pragma dvm redistribute(u[][][][])
+  
   //---------------------------------------------------------------------
   // first store the "interpolated" values everywhere on the grid    
   //---------------------------------------------------------------------
@@ -204,7 +210,9 @@ void initialize()
   
   */
   
-  
+  //#pragma dvm redistribute (u[block][block][block][])
+  //#pragma dvm redistribute (us[block][block][block])
+  //#pragma dvm redistribute (lhs_buf[block][block][block][][])
   
   //#pragma dvm parallel ([k][j][i] on u[k][j][i][]) private(m, ix, iy, iz, xi, eta, zeta, Pface, Pxi, Peta, Pzeta, temp)
   for (k = 0; k <= grid_points[2]-1; k++) {
@@ -304,6 +312,11 @@ void initialize()
       }
     }
   }
+  
+  //#pragma dvm redistribute (lhs_buf[][][][][])
+  //#pragma dvm redistribute(us[][][])  
+  //#pragma dvm redistribute(u[][][][])
+  
 }
 
 

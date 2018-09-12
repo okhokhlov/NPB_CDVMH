@@ -36,12 +36,13 @@
 void adi()
 {
   compute_rhs();
-
+//#pragma dvm redistribute (lhs_buf[][][][][][])
   x_solve();
 
   y_solve();
 
   z_solve();
 
+  //#pragma dvm redistribute (lhs_buf[block][block][block][][][])
   add();
 }

@@ -1,0 +1,273 @@
+[DEBUG]    bt.c:138                  dvmh_rts.cpp:439          Starting log. Local time is 00:59:25. Date is 29.08.2018. Logging level is 5 (TRACE).
+[INFO]     bt.c:138                  dvmh_rts.cpp:441          DVM system build is 'Version 5.0, revision 5258, build 2, platform Tester'
+[INFO]     bt.c:138                  dvmh_rts.cpp:443          DVM system is installed in '/home/DVM/dvm_current/dvm_sys'
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 1. Saved previous handler (nil) with flags 0x0.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 2. Saved previous handler (nil) with flags 0x0.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 3. Saved previous handler (nil) with flags 0x0.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 4. Saved previous handler (nil) with flags 0x0.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 6. Saved previous handler (nil) with flags 0x0.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 11. Saved previous handler (nil) with flags 0x0.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 13. Saved previous handler 0x1 with flags 0x14000000.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 14. Saved previous handler (nil) with flags 0x0.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 15. Saved previous handler (nil) with flags 0x0.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 10. Saved previous handler 0x7f2402047730 with flags 0x14000000.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 12. Saved previous handler (nil) with flags 0x0.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 7. Saved previous handler (nil) with flags 0x0.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 29. Saved previous handler (nil) with flags 0x0.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 27. Saved previous handler (nil) with flags 0x0.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 31. Saved previous handler (nil) with flags 0x0.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 5. Saved previous handler (nil) with flags 0x0.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 26. Saved previous handler (nil) with flags 0x0.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 24. Saved previous handler (nil) with flags 0x0.
+[TRACE]    bt.c:138                  dvmh_rts.cpp:459          Set signal handler for signal 25. Saved previous handler (nil) with flags 0x0.
+[WARNING]  bt.c:138                  dvmh_rts.cpp:1083         Unrecognized DVMH environment variables found (check the spelling): DVMH_PPN
+[INFO]     bt.c:138                  dvmh_rts.cpp:1092         MPI is in THREAD_MULTIPLE mode
+[DEBUG]    bt.c:138                  dvmh_rts.cpp:1093         Memory page size is 4096 bytes
+[DEBUG]    bt.c:138                  dvmh_rts.cpp:731          Found 12 processors
+[DEBUG]    bt.c:138                  dvmh_rts.cpp:733          Maximum capacity of cpu_set_t is 1024
+[INFO]     bt.c:138                  dvmh_rts.cpp:738          DVM system is compiled with support for CUDA
+[DEBUG]    bt.c:138                  dvmh_rts.cpp:748          Found 2 CUDA devices
+[INFO]     bt.c:138                  dvmh_rts.cpp:783          DVM system is compiled with support for OpenMP
+[DEBUG]    bt.c:138                  dvmh_rts.cpp:601          Setting main thread affinity to use set of processors {10, 11}
+[DEBUG]    bt.c:138                  dvmh_device.cpp:154       THREAD dev1perf0: Performer 0 on device 1 started
+[DEBUG]    bt.c:138                  dvmh_device.cpp:161       THREAD dev1perf0: Setting affinity for performer #0 on device #1 to use set of processors {10}
+[DEBUG]    bt.c:138                  dvmh_device.cpp:383       THREAD dev1perf0: On CUDA device 0: sharedPerSM=49152, regsPerSM=32768, canMapHostMemory=1
+[TRACE]    bt.c:138                  dvmh_device.cpp:289       THREAD dev1perf0: Allocated 67108864 bytes on CPU on 0x7f23e3fff000
+[DEBUG]    bt.c:138                  dvmh_device.cpp:453       THREAD dev1perf0: For CUDA-device #0: try to run direct copy test between CPU and GPU with test size 64 MB
+[TRACE]    bt.c:138                  dvmh_device.cpp:558       THREAD dev1perf0: Allocated memory on GPU #0 67108864 bytes, place=0x600ea0000, free 359989248 bytes
+[DEBUG]    bt.c:138                  dvmh_device.cpp:477       THREAD dev1perf0: For CUDA-device #0: speed up of direct copy from CPU to GPU - 0.94 times
+[DEBUG]    bt.c:138                  dvmh_device.cpp:497       THREAD dev1perf0: For CUDA-device #0: speed up of direct copy from GPU to CPU - 1.00 times
+[TRACE]    bt.c:138                  dvmh_device.cpp:296       THREAD dev1perf0: Deallocated 0x7f23e3fff000 on CPU
+[DEBUG]    bt.c:138                  dvmh_device.cpp:515       THREAD dev1perf0: For CUDA-device #0: turning on direct copying
+[DEBUG]    bt.c:138                  dvmh_device.cpp:154       THREAD dev2perf0: Performer 0 on device 2 started
+[DEBUG]    bt.c:138                  dvmh_device.cpp:161       THREAD dev2perf0: Setting affinity for performer #0 on device #2 to use set of processors {11}
+[DEBUG]    bt.c:138                  dvmh_device.cpp:383       THREAD dev2perf0: On CUDA device 1: sharedPerSM=49152, regsPerSM=32768, canMapHostMemory=1
+[TRACE]    bt.c:138                  dvmh_device.cpp:289       THREAD dev2perf0: Allocated 67108864 bytes on CPU on 0x7f23d3fff000
+[DEBUG]    bt.c:138                  dvmh_device.cpp:453       THREAD dev2perf0: For CUDA-device #1: try to run direct copy test between CPU and GPU with test size 64 MB
+[TRACE]    bt.c:138                  dvmh_device.cpp:558       THREAD dev2perf0: Allocated memory on GPU #1 67108864 bytes, place=0x605d40000, free 606076928 bytes
+[DEBUG]    bt.c:138                  dvmh_device.cpp:477       THREAD dev2perf0: For CUDA-device #1: speed up of direct copy from CPU to GPU - 0.99 times
+[DEBUG]    bt.c:138                  dvmh_device.cpp:497       THREAD dev2perf0: For CUDA-device #1: speed up of direct copy from GPU to CPU - 3.01 times
+[TRACE]    bt.c:138                  dvmh_device.cpp:296       THREAD dev2perf0: Deallocated 0x7f23d3fff000 on CPU
+[DEBUG]    bt.c:138                  dvmh_device.cpp:515       THREAD dev2perf0: For CUDA-device #1: turning on direct copying
+[DEBUG]    bt.c:138                  dvmh_rts.cpp:833          Enabling Peer Access from device 0 to device 1
+[DEBUG]    bt.c:138                  dvmh_rts.cpp:833          Enabling Peer Access from device 1 to device 0
+[DEBUG]    bt.c:138                  dvmh_rts.cpp:892          Set of devices in use: CUDA (device numbers: 0(performance=1) 1(performance=1)). Total device count = 3. Total slot count = 2
+[INFO]     bt.c:138                  dvmh_rts.cpp:906          Number of processes in use: 6
+[INFO]     bt.c:138                  dvmh_rts.cpp:907          Total number of CPU threads in use: 0
+[INFO]     bt.c:138                  dvmh_rts.cpp:908          Total number of CUDA devices in use: 12
+[TRACE]    bt.c:138                  dvmh2.cpp:1911            THREAD main: Variable at 0xcb6220 with size 512 entered data region. Depth is 1.
+[TRACE]    bt.c:138                  dvmh2.cpp:1911            THREAD main: Variable at 0xcb6020 with size 512 entered data region. Depth is 1.
+[TRACE]    bt.c:138                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd4c20 with size 1200 entered data region. Depth is 1.
+[TRACE]    bt.c:138                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd50e0 with size 80 entered data region. Depth is 1.
+[TRACE]    bt.c:138                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd5780 with size 40 entered data region. Depth is 1.
+[TRACE]    bt.c:138                  dvmh2.cpp:1911            THREAD main: Variable at 0xcb1a6c with size 4 entered data region. Depth is 1.
+[TRACE]    bt.c:138                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd5140 with size 800 entered data region. Depth is 1.
+[TRACE]    bt.c:138                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd5460 with size 800 entered data region. Depth is 1.
+[TRACE]    bt.c:138                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd4120 with size 1200 entered data region. Depth is 1.
+[TRACE]    bt.c:138                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd40c0 with size 80 entered data region. Depth is 1.
+[TRACE]    bt.c:138                  dvmh2.cpp:1911            THREAD main: Variable at 0xcb1a68 with size 4 entered data region. Depth is 1.
+[TRACE]    bt.c:138                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd4900 with size 800 entered data region. Depth is 1.
+[TRACE]    bt.c:138                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd45e0 with size 800 entered data region. Depth is 1.
+[TRACE]    bt.c:138                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd3ba0 with size 1200 entered data region. Depth is 1.
+[TRACE]    bt.c:138                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd4060 with size 80 entered data region. Depth is 1.
+[TRACE]    bt.c:138                  dvmh2.cpp:1911            THREAD main: Variable at 0xcb1a64 with size 4 entered data region. Depth is 1.
+[TRACE]    bt.c:96                   dvmh2.cpp:1135            THREAD main: New dspace local part:
+[TRACE]    bt.c:96                   dvmh2.cpp:1136            THREAD main: [10..12][0..12][0..12][0..2][0..4][0..4]
+[TRACE]    bt.c:96                   distrib.cpp:2288          THREAD main: Mapping rect to dspace part. Rect:
+[TRACE]    bt.c:96                   distrib.cpp:2289          THREAD main: [0..12][0..12][0..12][0..2][0..4][0..4]
+[TRACE]    bt.c:96                   distrib.cpp:2290          THREAD main: Part:
+[TRACE]    bt.c:96                   distrib.cpp:2291          THREAD main: [10..12][0..12][0..12][0..2][0..4][0..4]
+[TRACE]    bt.c:96                   distrib.cpp:2355          THREAD main: Result (hasLocal=1):
+[TRACE]    bt.c:96                   distrib.cpp:2356          THREAD main: [10..12][0..12][0..12][0..2][0..4][0..4]
+[TRACE]    bt.c:96                   dvmh2.cpp:1437            THREAD main: New local part:
+[TRACE]    bt.c:96                   dvmh2.cpp:1438            THREAD main: [10..12][0..12][0..12][0..2][0..4][0..4]
+[TRACE]    bt.c:99                   distrib.cpp:2288          THREAD main: Mapping rect to dspace part. Rect:
+[TRACE]    bt.c:99                   distrib.cpp:2289          THREAD main: [0..11][0..12][0..12]
+[TRACE]    bt.c:99                   distrib.cpp:2290          THREAD main: Part:
+[TRACE]    bt.c:99                   distrib.cpp:2291          THREAD main: [10..12][0..12][0..12][0..2][0..4][0..4]
+[TRACE]    bt.c:99                   distrib.cpp:2355          THREAD main: Result (hasLocal=1):
+[TRACE]    bt.c:99                   distrib.cpp:2356          THREAD main: [10..11][0..12][0..12]
+[TRACE]    bt.c:99                   dvmh2.cpp:1437            THREAD main: New local part:
+[TRACE]    bt.c:99                   dvmh2.cpp:1438            THREAD main: [10..11][0..12][0..12]
+[TRACE]    bt.c:101                  distrib.cpp:2288          THREAD main: Mapping rect to dspace part. Rect:
+[TRACE]    bt.c:101                  distrib.cpp:2289          THREAD main: [0..11][0..12][0..12][0..4]
+[TRACE]    bt.c:101                  distrib.cpp:2290          THREAD main: Part:
+[TRACE]    bt.c:101                  distrib.cpp:2291          THREAD main: [10..12][0..12][0..12][0..2][0..4][0..4]
+[TRACE]    bt.c:101                  distrib.cpp:2355          THREAD main: Result (hasLocal=1):
+[TRACE]    bt.c:101                  distrib.cpp:2356          THREAD main: [10..11][0..12][0..12][0..4]
+[TRACE]    bt.c:101                  dvmh2.cpp:1437            THREAD main: New local part:
+[TRACE]    bt.c:101                  dvmh2.cpp:1438            THREAD main: [10..11][0..12][0..12][0..4]
+[TRACE]    bt.c:103                  distrib.cpp:2288          THREAD main: Mapping rect to dspace part. Rect:
+[TRACE]    bt.c:103                  distrib.cpp:2289          THREAD main: [0..11][0..12][0..12]
+[TRACE]    bt.c:103                  distrib.cpp:2290          THREAD main: Part:
+[TRACE]    bt.c:103                  distrib.cpp:2291          THREAD main: [10..12][0..12][0..12][0..2][0..4][0..4]
+[TRACE]    bt.c:103                  distrib.cpp:2355          THREAD main: Result (hasLocal=1):
+[TRACE]    bt.c:103                  distrib.cpp:2356          THREAD main: [10..11][0..12][0..12]
+[TRACE]    bt.c:103                  dvmh2.cpp:1437            THREAD main: New local part:
+[TRACE]    bt.c:103                  dvmh2.cpp:1438            THREAD main: [10..11][0..12][0..12]
+[TRACE]    bt.c:105                  distrib.cpp:2288          THREAD main: Mapping rect to dspace part. Rect:
+[TRACE]    bt.c:105                  distrib.cpp:2289          THREAD main: [0..11][0..12][0..12]
+[TRACE]    bt.c:105                  distrib.cpp:2290          THREAD main: Part:
+[TRACE]    bt.c:105                  distrib.cpp:2291          THREAD main: [10..12][0..12][0..12][0..2][0..4][0..4]
+[TRACE]    bt.c:105                  distrib.cpp:2355          THREAD main: Result (hasLocal=1):
+[TRACE]    bt.c:105                  distrib.cpp:2356          THREAD main: [10..11][0..12][0..12]
+[TRACE]    bt.c:105                  dvmh2.cpp:1437            THREAD main: New local part:
+[TRACE]    bt.c:105                  dvmh2.cpp:1438            THREAD main: [10..11][0..12][0..12]
+[TRACE]    bt.c:107                  distrib.cpp:2288          THREAD main: Mapping rect to dspace part. Rect:
+[TRACE]    bt.c:107                  distrib.cpp:2289          THREAD main: [0..11][0..12][0..12]
+[TRACE]    bt.c:107                  distrib.cpp:2290          THREAD main: Part:
+[TRACE]    bt.c:107                  distrib.cpp:2291          THREAD main: [10..12][0..12][0..12][0..2][0..4][0..4]
+[TRACE]    bt.c:107                  distrib.cpp:2355          THREAD main: Result (hasLocal=1):
+[TRACE]    bt.c:107                  distrib.cpp:2356          THREAD main: [10..11][0..12][0..12]
+[TRACE]    bt.c:107                  dvmh2.cpp:1437            THREAD main: New local part:
+[TRACE]    bt.c:107                  dvmh2.cpp:1438            THREAD main: [10..11][0..12][0..12]
+[TRACE]    bt.c:109                  distrib.cpp:2288          THREAD main: Mapping rect to dspace part. Rect:
+[TRACE]    bt.c:109                  distrib.cpp:2289          THREAD main: [0..11][0..12][0..12]
+[TRACE]    bt.c:109                  distrib.cpp:2290          THREAD main: Part:
+[TRACE]    bt.c:109                  distrib.cpp:2291          THREAD main: [10..12][0..12][0..12][0..2][0..4][0..4]
+[TRACE]    bt.c:109                  distrib.cpp:2355          THREAD main: Result (hasLocal=1):
+[TRACE]    bt.c:109                  distrib.cpp:2356          THREAD main: [10..11][0..12][0..12]
+[TRACE]    bt.c:109                  dvmh2.cpp:1437            THREAD main: New local part:
+[TRACE]    bt.c:109                  dvmh2.cpp:1438            THREAD main: [10..11][0..12][0..12]
+[TRACE]    bt.c:111                  distrib.cpp:2288          THREAD main: Mapping rect to dspace part. Rect:
+[TRACE]    bt.c:111                  distrib.cpp:2289          THREAD main: [0..11][0..12][0..12]
+[TRACE]    bt.c:111                  distrib.cpp:2290          THREAD main: Part:
+[TRACE]    bt.c:111                  distrib.cpp:2291          THREAD main: [10..12][0..12][0..12][0..2][0..4][0..4]
+[TRACE]    bt.c:111                  distrib.cpp:2355          THREAD main: Result (hasLocal=1):
+[TRACE]    bt.c:111                  distrib.cpp:2356          THREAD main: [10..11][0..12][0..12]
+[TRACE]    bt.c:111                  dvmh2.cpp:1437            THREAD main: New local part:
+[TRACE]    bt.c:111                  dvmh2.cpp:1438            THREAD main: [10..11][0..12][0..12]
+[TRACE]    bt.c:113                  distrib.cpp:2288          THREAD main: Mapping rect to dspace part. Rect:
+[TRACE]    bt.c:113                  distrib.cpp:2289          THREAD main: [0..11][0..12][0..12][0..4]
+[TRACE]    bt.c:113                  distrib.cpp:2290          THREAD main: Part:
+[TRACE]    bt.c:113                  distrib.cpp:2291          THREAD main: [10..12][0..12][0..12][0..2][0..4][0..4]
+[TRACE]    bt.c:113                  distrib.cpp:2355          THREAD main: Result (hasLocal=1):
+[TRACE]    bt.c:113                  distrib.cpp:2356          THREAD main: [10..11][0..12][0..12][0..4]
+[TRACE]    bt.c:113                  dvmh2.cpp:1437            THREAD main: New local part:
+[TRACE]    bt.c:113                  dvmh2.cpp:1438            THREAD main: [10..11][0..12][0..12][0..4]
+[TRACE]    bt.c:115                  distrib.cpp:2288          THREAD main: Mapping rect to dspace part. Rect:
+[TRACE]    bt.c:115                  distrib.cpp:2289          THREAD main: [0..11][0..12][0..12][0..4]
+[TRACE]    bt.c:115                  distrib.cpp:2290          THREAD main: Part:
+[TRACE]    bt.c:115                  distrib.cpp:2291          THREAD main: [10..12][0..12][0..12][0..2][0..4][0..4]
+[TRACE]    bt.c:115                  distrib.cpp:2355          THREAD main: Result (hasLocal=1):
+[TRACE]    bt.c:115                  distrib.cpp:2356          THREAD main: [10..11][0..12][0..12][0..4]
+[TRACE]    bt.c:115                  dvmh2.cpp:1437            THREAD main: New local part:
+[TRACE]    bt.c:115                  dvmh2.cpp:1438            THREAD main: [10..11][0..12][0..12][0..4]
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd3530 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf748 with size 12 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2580 with size 4 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd03e8 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd0488 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2578 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccec60 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf2c8 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf758 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2858 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd28b8 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd3b88 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf520 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd03e0 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd0480 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2568 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2878 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf0a8 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf538 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd03f8 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd0498 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2618 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd04c0 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2850 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd28a0 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd3b80 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccec68 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2898 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf510 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2640 with size 520 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccea00 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd04c8 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccec20 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2560 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2870 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd3758 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccec40 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf2c0 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd3750 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2570 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd3740 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2ae0 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccee90 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccee88 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf518 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd03d8 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd0478 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2358 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf980 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccec30 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2890 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd03d0 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccec28 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2620 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2888 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd3970 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccec58 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf4f0 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2848 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd04a8 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2880 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd3748 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf4e8 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccec38 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2860 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccee98 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd3968 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf760 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf4f8 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd3b90 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccee80 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf0a0 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf530 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd03f0 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd0490 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2608 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd28a8 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccec50 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd3978 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd28c0 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2868 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd28b0 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf500 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2588 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd04a0 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd03c8 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf508 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd04b0 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccea08 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd3528 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd0470 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd04d8 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd04d0 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd3538 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf528 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccec70 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd04b8 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd0468 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd0400 with size 104 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd25a0 with size 104 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf540 with size 520 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf2e0 with size 520 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccf9a0 with size 2600 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2b00 with size 2600 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd04e0 with size 7800 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd3960 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xccec48 with size 8 entered data region. Depth is 1.
+[TRACE]    bt.c:115                  dvmh2.cpp:1911            THREAD main: Variable at 0xcd2610 with size 8 entered data region. Depth is 1.
+[DEBUG]    bt.c:115                  dvmh2.cpp:397             THREAD main: Command-line argument #0 - './bin/bt.S.x'
+[FATAL]    bt.c:115                  dvmh_rts.cpp:255          THREAD main: *** RTS stack trace:
+[FATAL]    bt.c:115                  dvmh_rts.cpp:281          THREAD main: #0 ./bin/bt.S.x() [0x5120e9] at /home/DVM/dvm_r5258/dvm_sys/rts/dvmh/dvmh_rts.cpp:252
+[FATAL]    bt.c:115                  dvmh_rts.cpp:281          THREAD main: #1 ./bin/bt.S.x() [0x512385] at /home/DVM/dvm_r5258/dvm_sys/rts/dvmh/dvmh_rts.cpp:353
+[FATAL]    bt.c:115                  dvmh_rts.cpp:281          THREAD main: #2 /lib64/libpthread.so.0(+0xf5e0) [0x7f24019845e0] at ??:0
+[FATAL]    bt.c:115                  dvmh_rts.cpp:281          THREAD main: #3 ./bin/bt.S.x() [0x41878b] at /home/OHohlov/NPB3.3-SER-C-DVM/BT/rhs.DVMH.c:602
+[FATAL]    bt.c:115                  dvmh_rts.cpp:281          THREAD main: #4 ./bin/bt.S.x() [0x41866b] at /home/OHohlov/NPB3.3-SER-C-DVM/BT/adi.DVMH.c:203
+[FATAL]    bt.c:115                  dvmh_rts.cpp:281          THREAD main: #5 ./bin/bt.S.x() [0x4091ae] at /home/OHohlov/NPB3.3-SER-C-DVM/BT/bt.DVMH.c:386
+[FATAL]    bt.c:115                  dvmh_rts.cpp:281          THREAD main: #6 /lib64/libc.so.6(__libc_start_main+0xf5) [0x7f2400e95c05] at ??:0
+[FATAL]    bt.c:115                  dvmh_rts.cpp:281          THREAD main: #7 ./bin/bt.S.x() [0x413197] at ??:?

@@ -90,6 +90,9 @@ extern double tx1, tx2, tx3, ty1, ty2, ty3, tz1, tz2, tz3,
 /* common /fields/ */
 
 #pragma dvm array
+extern double lhs_buf[PROBLEM_SIZE+1][PROBLEM_SIZE+1][PROBLEM_SIZE+1][3][5][5];
+
+#pragma dvm array
 extern double u      [KMAX][JMAXP+1][IMAXP+1][5];
 
 #pragma dvm array 
@@ -111,6 +114,8 @@ extern double forcing[KMAX][JMAXP+1][IMAXP+1][5];
 
 #pragma dvm array
 extern double rhs    [KMAX][JMAXP+1][IMAXP+1][5];
+
+
 
 /* common /work_1d/ */
 extern double cuf[PROBLEM_SIZE+1];
